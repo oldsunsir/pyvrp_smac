@@ -1,5 +1,6 @@
 ## 
 
-- pap应该设计成一个类  
-- 类中包含了所有instance名称或者路径作为key  
-- 存储一个map，key是instance，value是对应的算法版本和结果，可以用tuple？
+- params应该尽量按照具体的格式来初始化？方便后面传
+- 除了target还应该有个train，来将具体的格式变为solveparams
+- params中写一个获得configuration的函数吧
+- main中应该有不同的vrp_smac
