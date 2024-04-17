@@ -1,27 +1,23 @@
-import matplotlib.pyplot as plt
 from vrplib import read_solution
 
 from pyvrp import Model, read
-from pyvrp.plotting import (
-    plot_coordinates,
-    plot_instance,
-    plot_result,
-    plot_route_schedule,
-)
 from pyvrp.stop import MaxIterations, MaxRuntime
 from params import params
 from pyvrp import SolveParams
 
 class CVRPTarget:
-
-    def __init__(self, iterations : int = 100) -> None:
-        self.model : Model = None
-        self.cost : float = 0
+    """
+    iterations : 控制查找代数
+    file_path : 样例路径
+    self.model : 从data转化成的model
+    self.instance_path : 标识是哪一个instance
+    """
+    def __init__(self, iterations : int = 100, file_path : str = None) -> None:
+        self.cost : float = float("inf")    ## 初始结果应该设为无穷大
         self.iterations = iterations
+        self.instance_path = file_path
+        self.model = Model.from_data(read(file_path, round_func="round"))
 
-    def getModel(self, file_path = 'CVRP_Data/X-n101-k25.vrp'):
-        INSTANCE = read(file_path, round_func="round")
-        self.model = Model.from_data(INSTANCE)
         
 
     def getCost(self, cvrp_params : params) -> float:
