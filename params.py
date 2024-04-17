@@ -9,6 +9,10 @@ from pyvrp.search import NeighbourhoodParams
 from ConfigSpace import ConfigurationSpace,Configuration
 from ConfigSpace import Integer, Categorical, Float
 class params:
+    """
+    用于初始化某个算法的参数配置
+    输入格式具体到gen,pen,pop,nb中的每个参数
+    """
     def __init__(self,
                  repair_probability : float = 0.5,
                  nb_iter_no_improvement : int = 20000,
@@ -53,8 +57,39 @@ class params:
                                              nb_granular=nb_granular,
                                              symmetric_proximity=symmetric_proximity,
                                              symmetric_neighbours=symmetric_neighbours)     
+        
+    @property
+    def to_dict(self) -> dict:
+        """
+        获取params的字典形式
+        """
+        return{
+            "repair_probability" : self.gen_params.repair_probability,
+            "nb_iter_no_improvement" : self.gen_params.nb_iter_no_improvement,
+            "min_pop_size" : self.pop_params.min_pop_size,
+            "generation_size" : self.pop_params.generation_size,
+            "nb_elite" : self.pop_params.nb_elite,
+            "nb_close" : self.pop_params.nb_close,
+            "lb_diversity" : self.pop_params.lb_diversity,
+            "ub_diversity" : self.pop_params.ub_diversity,
+            "weight_wait_time" : self.nb_params.weight_wait_time,
+            "weight_time_warp" : self.nb_params.weight_time_warp,
+            "nb_granular" : self.nb_params.nb_granular,
+            "symmetric_proximity" : self.nb_params.symmetric_proximity,
+            "symmetric_neighbours" : self.nb_params.symmetric_neighbours,
+            "init_load_penalty" : self.pen_params.init_load_penalty,
+            "init_time_warp_penalty" : self.pen_params.init_time_warp_penalty,
+            "repair_booster" : self.pen_params.repair_booster,
+            "solutions_between_updates" : self.pen_params.solutions_between_updates,
+            "penalty_increase" : self.pen_params.penalty_increase,
+            "penalty_decrease" : self.pen_params.penalty_decrease,
+            "target_feasible" : self.pen_params.target_feasible
+        }
     @staticmethod
     def get_configuration() -> ConfigurationSpace:
+        """
+        一个静态方法,用于获取整体的configuration
+        """
         cs = ConfigurationSpace(seed = 0)
         repair_probability = Float(name="repair_probability",
                                    bounds=(0, 1))
@@ -112,6 +147,9 @@ class params:
 
     @classmethod
     def get_initial_params(cls, path : str):
+        """
+        获取初始化的参数配置
+        """
         kargs = cls.params_from_file(path)
         initial_params = cls()
         initial_params.gen_params = kargs["gen_params"]
@@ -123,6 +161,9 @@ class params:
     
     @staticmethod
     def params_from_file(path) -> dict:
+        """
+        从.toml文件中获取参数配置
+        """
         with open(path, 'rb') as fh:
             data = tomli.load(fh)
 
