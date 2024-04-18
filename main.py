@@ -8,21 +8,21 @@ from smac.runhistory import TrialInfo,TrialValue,TrialKey
 
 from params import params
 from target_CVRP import CVRPTarget
+from pap import PAP
 
 __copyright__ = "Copyright 2021, AutoML.org Freiburg-Hannover"
 __license__ = "3-clause BSD"
 
-k = 4##算法库成员数量 4
-n = 20##每次迭代smac生成的n个算法，从这n个中挑最好的 
-c = 2##基算法数量
+k = 4   ##  算法库成员数量 4
+n = 20  ##  每次迭代smac生成的n个算法，从这n个中挑最好的 
+
 run_num = k*n##总共需要跑k*n次
 n_worker = 1
 
 PAP = target_func.PAP
 
 cvrp_smacout_name = "CVRP_NEW"
-hgs_smacout_name = 'HGS_New'
-alns_smacout_name = 'ALNS_New'
+
 class StopCallback(Callback):
     def __init__(self,stop_after:int):
         self._stop_after = stop_after
@@ -129,6 +129,9 @@ class cvrp_smac:
         cur_params = params(**config)
         return self.target.getCost(cur_params)
 
+class main:
+    def __init__(self, type, ) -> None:
+        
     
     
 if __name__ == "__main__":
