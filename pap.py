@@ -47,15 +47,22 @@ class PAP:
 
     def papUpdate(self, bestParam : params):
         """
-        从每n个算法中, 选出最佳参数配置的算法后, 即时更新instance2algo
+        从每n个算法中, 选出最佳参数配置的算法后, 即时更新instance2algo与algos
         """
+        self.algos.append(bestParam)
+        bestDictOfParam = bestParam.to_dict
         for cvrp_target, _ in self.instance2algo.items():
             assert bestParam in self.instancesResOfParam.keys()
             if self.instancesResOfParam[bestParam][cvrp_target] < cvrp_target.cost:
                 cvrp_target.cost = self.instancesResOfParam[bestParam][cvrp_target]
-                self.instance2algo[cvrp_target] = bestParam.to_dict
+                self.instance2algo[cvrp_target] = bestDictOfParam
 
         
 
+if __name__ == "__main__":
+    tmp_pap = PAP(folder_path = "CVRP_Data")
+    tmp_param = params.get_initial_params(path = "cvrp.toml")
+    print(tmp_pap.papTarget(param = tmp_param))
 
+    tmp_pap.papUpdate(bestParam = tmp_param)
     
