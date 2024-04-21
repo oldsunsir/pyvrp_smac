@@ -18,7 +18,12 @@ class CVRPTarget:
         self.instance_path = file_path
         self.model = Model.from_data(read(file_path, round_func="round"))
 
-        
+    
+    def __hash__(self) -> int:
+        """
+        hash值只和样例名有关
+        """
+        return hash(self.instance_path)
 
     def getCost(self, cvrp_params : params) -> float:
         solve_params = SolveParams(genetic = cvrp_params.gen_params,
@@ -26,5 +31,5 @@ class CVRPTarget:
                                    population = cvrp_params.pop_params,
                                    neighbourhood = cvrp_params.nb_params)
         result = self.model.solve(stop=MaxIterations(max_iterations = self.iterations), seed=42, display = False, params = solve_params)
-        return result
+        return result.cost()
         
