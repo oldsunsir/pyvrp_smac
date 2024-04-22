@@ -4,7 +4,8 @@ from smac.facade import BlackBoxFacade
 from smac import Callback
 from smac.main.smbo import SMBO
 from smac.runhistory import TrialInfo,TrialValue
-
+import random
+import time
 from params import params
 
 from pap import PAP
@@ -48,42 +49,24 @@ class CustomCallback(Callback):
                         min_cost = smbo.runhistory[key].cost
                         flag_id = key.config_id
             best_config = smbo.runhistory.get_config(flag_id)
-            best_config_dict = best_config.get_dictionary()
+            best_config_dict = dict(best_config)
 
             assert best_config_dict is not None
             print(f"the Best of Current {self.n_config} {smbo._scenario.name} config: {best_config_dict}")
             print(f"Current incumbent value: {smbo.runhistory.get_cost(best_config)}")
             print("")
-
             self.pap.papUpdate(params(**best_config_dict))
 
             print(f"We just triggered to stop the optimization after {smbo.runhistory.finished} {smbo._scenario.name} finished trials.")
             print(f"目前的最佳结果记录表")
-            for instance_res in self.pap.instance2algo:
-                print(f"样例{instance_res.instance_path}对应的当前最佳结果为：{instance_res.cost}")
-
-            print("")
-            print("tell_end结束")
-            return False
+            for instance_res, algo in self.pap.instance2algo.items():
+                print(f"样例{instance_res.instance_path}对应的当前最佳结果为：{instance_res.cost}\
+                      对应的最佳算法为{algo}")
 
         print("")
         print("tell_end结束")
         return None
     
-
-
-# class cvrp_smac:
-#     def __init__(self) -> None:
-#         self.target = CVRPTarget()
-#         self.target.getModel()
-
-#     @property
-#     def configspace(self) -> ConfigurationSpace:
-#         return params.get_configuration()
-    
-#     def train(self, config : Configuration, seed : int = 42) -> float:
-#         cur_params = params(**config)
-#         return self.target.getCost(cur_params)
 
 class main:
     def __init__(self, type, path, iteration, pap_capacity, n_config) -> None:
@@ -93,6 +76,9 @@ class main:
         iteration 控制每个实例跑多少代
         pap_capacity pap可以装几个算法
         n_config 每n次挑选一个最佳配置
+
+        self.initial_design 为smac框架提供一个解的参考初始值
+        self.callback 回调函数, 控制修改pap
         """
         assert type in ["cvrp", "mdvrp", "vrptw"],  "problem type not in cvrp, mdvrp, vrptw"
         if type == "cvrp":
@@ -101,11 +87,13 @@ class main:
         else:
             pass
 
-        self.scenario = Scenario(configspace = params.get_configuration(), deterministic = True, n_trials = 50, name = type+"smacout", seed = 42)
+        self.scenario = Scenario(configspace = params.get_configuration(type = type), 
+                                 deterministic = True, n_trials = pap_capacity*n_config, 
+                                 name = type+"smacout"+str(random.random()+time.time()), seed = 42)
         self.initial_design = BlackBoxFacade.get_initial_design(
             scenario = self.scenario,
             additional_configs=[
-                Configuration(configuration_space = params.get_configuration(),
+                Configuration(configuration_space = params.get_configuration(type = type),
                           values = {
                               "repair_probability" : self.initial_params.gen_params.repair_probability,
                               "nb_iter_no_improvement" : self.initial_params.gen_params.nb_iter_no_improvement,
@@ -134,19 +122,22 @@ class main:
         self.pap_capacity = pap_capacity
         self.callback = CustomCallback(n_config = n_config, _pap = self.pap)
 
-    def target(self, config : Configuration) -> float:
-        cur_params = params(**(config.get_dictionary()))
+    def target(self, config : Configuration, seed : int = 42) -> float:
+        cur_params = params(**(dict(config)))
         return self.pap.papTarget(param = cur_params)
-    def train(self, ):
-        for _ in range(self.pap_capacity):
-            BlackBoxFacade(
-                scenario = self.scenario,
-                target_function = self.target(),
-                callbacks = [self.callback],
-                logging_level = 9999999999,
-                initial_design = self.initial_design,
-            ).optimize()
+    
+    def train(self):
+        BlackBoxFacade(
+            scenario = self.scenario,
+            target_function = self.target,
+            callbacks = [self.callback],
+            logging_level = 9999999999,
+            initial_design = self.initial_design,
+        ).optimize()
+        for i, algo in enumerate(self.pap.algos):
+            print(f"第{i+1}个算法配置为{algo}")
     
 if __name__ == "__main__":
-    tmp_main = main(type = "cvrp", path = "tmp_Data", iteration = 100, pap_capacity = 1, n_config = 2)
+
+    tmp_main = main(type = "cvrp", path = "tmp_Data", iteration = 100, pap_capacity = 2, n_config = 5)
     tmp_main.train()
