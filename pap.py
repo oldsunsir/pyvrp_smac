@@ -1,5 +1,7 @@
 from params import params
 from target_CVRP import CVRPTarget
+from target_MDVRP import MDVRPTarget
+from target_VRPTW import VRPTWTarget
 import os
 
 class PAP:
@@ -12,7 +14,7 @@ class PAP:
     self.instance_res_of_param : 每个测试的param对应的所有instance结果, 方便后续处理instance2algo中cvrptarge.cost 与 dict
                                 注意需要通过回调函数即时清除, 比如我要每10个算法选一个最好的, 那就每评估10个之后清除
     """
-    def __init__(self, folder_path : str, iteration : int = 100) -> None:
+    def __init__(self, folder_path : str, iteration : int = 100, type : str = "cvrp") -> None:
         self.instances = []
 
         instances_path = os.listdir(folder_path)
@@ -23,8 +25,12 @@ class PAP:
                 self.instances.append(instance_path)
 
         ## 初始每个instance对应一个空算法
-        self.instance2algo = {CVRPTarget(file_path = instance, iterations = iteration) : dict() for instance in self.instances}
-
+        if type == "cvrp":
+            self.instance2algo = {CVRPTarget(file_path = instance, iterations = iteration) : dict() for instance in self.instances}
+        elif type == "mdvrp":
+            self.instance2algo = {MDVRPTarget(file_path = instance, iterations = iteration) : dict() for instance in self.instances}
+        else:
+            self.instance2algo = {VRPTWTarget(file_path = instance, iterations = iteration) : dict() for instance in self.instances}
         self.algos : list[dict] = []
         self.instance_res_of_param : dict = {}
 
@@ -39,23 +45,23 @@ class PAP:
         """
         sum = 0
         self.instance_res_of_param[param] = {}
-        for cvrp_target, _ in self.instance2algo.items():
-            cur_res = cvrp_target.getCost(cvrp_params = param)
-            self.instance_res_of_param[param][cvrp_target] = cur_res
-            sum += min(cur_res, cvrp_target.cost)
+        for vrp_target, _ in self.instance2algo.items():
+            cur_res = vrp_target.getCost(cvrp_params = param)
+            self.instance_res_of_param[param][vrp_target] = cur_res
+            sum += min(cur_res, vrp_target.cost)
         return sum
 
     def papUpdate(self, best_param : params):
         """
         从每n个算法中, 选出最佳参数配置的算法后, 即时更新instance2algo与algos
         """
-        self.algos.append(best_param)
         best_dict_of_param = best_param.to_dict
+        self.algos.append(best_dict_of_param)
         assert best_param in self.instance_res_of_param.keys()
-        for cvrp_target in self.instance2algo.keys():
-            if self.instance_res_of_param[best_param][cvrp_target] < cvrp_target.cost:
-                cvrp_target.cost = self.instance_res_of_param[best_param][cvrp_target]
-                self.instance2algo[cvrp_target] = best_dict_of_param
+        for vrp_target in self.instance2algo.keys():
+            if self.instance_res_of_param[best_param][vrp_target] < vrp_target.cost:
+                vrp_target.cost = self.instance_res_of_param[best_param][vrp_target]
+                self.instance2algo[vrp_target] = best_dict_of_param
         ##每个param更新过之后就不再用到
         self.instance_res_of_param.clear()
         
