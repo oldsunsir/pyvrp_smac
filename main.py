@@ -7,7 +7,7 @@ from smac.runhistory import TrialInfo,TrialValue
 import random
 import time
 from params import params
-
+from utils import parse_args
 from pap import PAP
 
 __copyright__ = "Copyright 2021, AutoML.org Freiburg-Hannover"
@@ -22,12 +22,10 @@ class CustomCallback(Callback):
         self.pap = _pap
 
     def on_start(self, smbo:SMBO) -> None:
-        print("Start now!")
-        print("")
+        print("Start now!\n")
     
     def on_tell_end(self, smbo: SMBO, info: TrialInfo, value: TrialValue):
-        print("这里是tell_end")
-        print("")
+        print("这里是tell_end\n")
 
         print("finish",smbo.runhistory.finished)
         print("submit",smbo.runhistory.submitted)
@@ -53,8 +51,8 @@ class CustomCallback(Callback):
 
             assert best_config_dict is not None
             print(f"the Best of Current {self.n_config} {smbo._scenario.name} config: {best_config_dict}")
-            print(f"Current incumbent value: {smbo.runhistory.get_cost(best_config)}")
-            print("")
+            print(f"Current incumbent value: {smbo.runhistory.get_cost(best_config)}\n")
+
             self.pap.papUpdate(params(**best_config_dict))
 
             print(f"We just triggered to stop the optimization after {smbo.runhistory.finished} {smbo._scenario.name} finished trials.")
@@ -64,7 +62,7 @@ class CustomCallback(Callback):
                       对应的最佳算法为{algo}")
 
         print("")
-        print("tell_end结束")
+        print("tell_end结束\n")
         return None
     
 
@@ -82,11 +80,13 @@ class main:
         """
         assert type in ["cvrp", "mdvrp", "vrptw"],  "problem type not in cvrp, mdvrp, vrptw"
         if type == "cvrp":
-            self.pap = PAP(folder_path = path, iteration = iteration)
             self.initial_params = params.get_initial_params("cvrp.toml")
+        elif type == "vrptw":
+            self.initial_params = params.get_initial_params("")
         else:
+            self.initial_params = params.get_initial_params("")
             pass
-
+        self.pap = PAP(folder_path = path, iteration = iteration, type = type)
         self.scenario = Scenario(configspace = params.get_configuration(type = type), 
                                  deterministic = True, n_trials = pap_capacity*n_config, 
                                  name = type+"smacout"+str(random.random()+time.time()), seed = 42)
@@ -135,9 +135,9 @@ class main:
             initial_design = self.initial_design,
         ).optimize()
         for i, algo in enumerate(self.pap.algos):
-            print(f"第{i+1}个算法配置为{algo}")
+            print(f"第{i+1}个算法配置为{algo}\n")
     
 if __name__ == "__main__":
-
-    tmp_main = main(type = "cvrp", path = "tmp_Data", iteration = 100, pap_capacity = 2, n_config = 5)
+    args = parse_args()
+    tmp_main = main(type = args.type, path = args.path, iteration = args.iteration, pap_capacity = args.k, n_config = args.n)
     tmp_main.train()
