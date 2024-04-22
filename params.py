@@ -86,14 +86,14 @@ class params:
             "target_feasible" : self.pen_params.target_feasible
         }
     @staticmethod
-    def get_configuration() -> ConfigurationSpace:
+    def get_configuration(type : str = "cvrp") -> ConfigurationSpace:
         """
         一个静态方法,用于获取整体的configuration
         """
         cs = ConfigurationSpace(seed = 0)
         repair_probability = Float(name="repair_probability",
                                    bounds=(0, 1))
-        nb_iter_no_improvement = Float(name="nb_iter_no_improvement",
+        nb_iter_no_improvement = Integer(name="nb_iter_no_improvement",
                                        bounds=(15000, 30000))
         
         min_pop_size = Integer(name="min_pop_size",
@@ -102,17 +102,17 @@ class params:
                                   bounds=(20, 60))
         nb_elite = Integer(name="nb_elite",
                            bounds=(2, 6))
-        nb_close = Integer(name="nb_close ",
+        nb_close = Integer(name="nb_close",
                            bounds=(3, 7))
         lb_diversity = Float(name="lb_diversity",
                              bounds=(0, 0.4))
         ub_diversity = Float(name="ub_diversity",
                              bounds=(0.4, 0.8))
-        
+        ## Float不支持上下界相等, 为了统一, 这里采用一个极小量
         weight_wait_time = Float(name="weight_wait_time",
-                                   bounds=(0, 0.5))
+                                   bounds=(0, 0.5) if type == 'vrptw' else (0, 0+1e-9))
         weight_time_warp = Float(name="weight_time_warp",
-                                 bounds=(0.5, 1.5))
+                                 bounds=(0.5, 1.5) if type == 'vrptw' else (0, 0+1e-9))
         nb_granular = Integer(name="nb_granular",
                               bounds=(15, 50))
         symmetric_proximity = Categorical(name='symmetric_proximity', 
@@ -187,9 +187,21 @@ class params:
                 f"Population Parameters: {self.pop_params}\n"
                 f"Neighbourhood Parameters: {self.nb_params}")
 
+    def __eq__(self, other: object) -> bool:
+        """
+        判断某一个键是否存在于dict.keys(), 也就是in, 用的是 == 而不是 is
+        """
+        if isinstance(other, params):
+            return self.to_dict == other.to_dict
+        return NotImplementedError
+    
+    def __hash__(self) -> int:
+        """
+        用于后续以params作为key的字典操作
+        """
+        return hash(tuple(sorted(self.to_dict.items())))
     
 if __name__ == "__main__":
     initial_params = params.get_initial_params("cvrp.toml")
     # print(str(initial_params))
-    cs = params.get_configuration()
-    print(cs["penalty_decrease"])
+    cs = params.get_configuration(type = "cvrp")
