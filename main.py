@@ -138,6 +138,7 @@ class main:
             print(f"第{i+1}个算法配置为{algo}\n")
     
 if __name__ == "__main__":
-    args = parse_args()
-    tmp_main = main(type = args.type, path = args.path, iteration = args.iteration, pap_capacity = args.k, n_config = args.n)
+    # args = parse_args()
+    # tmp_main = main(type = args.type, path = args.path, iteration = args.iteration, pap_capacity = args.k, n_config = args.n)
+    tmp_main = main(type="cvrp", path="tmp_Data", iteration=100, pap_capacity=2, n_config=5)
     tmp_main.train()

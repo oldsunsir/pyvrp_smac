@@ -1,8 +1,13 @@
+from multiprocessing import Pool
+from typing import Tuple
+import os
 from params import params
 from target_CVRP import CVRPTarget
 from target_MDVRP import MDVRPTarget
 from target_VRPTW import VRPTWTarget
-import os
+
+
+
 
 class PAP:
     """
@@ -34,6 +39,12 @@ class PAP:
         self.algos : list[dict] = []
         self.instance_res_of_param : dict = {}
 
+    @staticmethod
+    def singleVrpTarget(args : Tuple[CVRPTarget | MDVRPTarget | VRPTWTarget, params]):
+        vrp_target, param = args
+        cur_res = vrp_target.getCost(param)
+        return vrp_target, cur_res
+    
     def papTarget(self, param : params) -> float:
         """
         获取 当前算法加入PAP后, 整体样例的结果
@@ -45,10 +56,15 @@ class PAP:
         """
         sum = 0
         self.instance_res_of_param[param] = {}
-        for vrp_target, _ in self.instance2algo.items():
-            cur_res = vrp_target.getCost(cvrp_params = param)
+        vrp_instance_list = [(vrp_target, param) for vrp_target, _ in self.instance2algo.items()]
+
+        with Pool() as pool:
+            results = pool.map(PAP.singleVrpTarget, vrp_instance_list)
+        print(11111)
+        for vrp_target, cur_res in results:
             self.instance_res_of_param[param][vrp_target] = cur_res
             sum += min(cur_res, vrp_target.cost)
+
         return sum
 
     def papUpdate(self, best_param : params):
@@ -67,7 +83,7 @@ class PAP:
         
 
 if __name__ == "__main__":
-    tmp_pap = PAP(folder_path = "CVRP_Data")
+    tmp_pap = PAP(folder_path = "tmp_Data")
     tmp_param = params.get_initial_params(path = "cvrp.toml")
     tmp_pap.papTarget(param = tmp_param)
     tmp_pap.papUpdate(best_param = tmp_param)
