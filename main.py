@@ -1,235 +1,144 @@
 from ConfigSpace import ConfigurationSpace,Configuration
-from ConfigSpace import Integer,Categorical
-from smac import BlackBoxFacade, Scenario,intensifier
-from smac import Callback,runhistory
+from smac.scenario import Scenario
+from smac.facade import BlackBoxFacade
+from smac import Callback
 from smac.main.smbo import SMBO
-from smac.main import config_selector
-from smac.runhistory import TrialInfo,TrialValue,TrialKey
-
+from smac.runhistory import TrialInfo,TrialValue
+import random
+import time
 from params import params
+from utils import parse_args
+from pap import PAP
 
 __copyright__ = "Copyright 2021, AutoML.org Freiburg-Hannover"
 __license__ = "3-clause BSD"
 
-k = 4##算法库成员数量 4
-n = 20##每次迭代smac生成的n个算法，从这n个中挑最好的 
-c = 2##基算法数量
-run_num = k*n##总共需要跑k*n次
-n_worker = 1
 
-PAP = target_func.PAP
 
-hgs_smacout_name = 'HGS_New'
-alns_smacout_name = 'ALNS_New'
-class StopCallback(Callback):
-    def __init__(self,stop_after:int):
-        self._stop_after = stop_after
-    def on_tell_end(self, smbo: SMBO, info: TrialInfo, value: TrialValue):
-        if smbo.runhistory.finished % self._stop_after == 0:
-            return False
-        return None
 class CustomCallback(Callback):
-    def __init__(self) -> None:
+    def __init__(self, n_config : int, _pap : PAP) -> None:
         self.trials_counter = 0
+        self.n_config = n_config
+        self.pap = _pap
+
     def on_start(self, smbo:SMBO) -> None:
-        print("Start now!")
-        print("")
-    def on_ask_start(self, smbo: SMBO):
-
-        return None
-    def on_tell_start(self, smbo:SMBO, info: TrialInfo, value: TrialValue):
-
-        # print("这里是tellstart")
-        # print("finish",smbo.runhistory.finished)
-        # print("submit",smbo.runhistory.submitted)
-        # print("tellstart结束")
-        # # if smbo.runhistory.submitted % n_worker == 0:
-        # #     return False
-        return None
+        print("Start now!\n")
+    
     def on_tell_end(self, smbo: SMBO, info: TrialInfo, value: TrialValue):
-        print("这里是tell_end")
-        print("")
+        print("这里是tell_end\n")
 
         print("finish",smbo.runhistory.finished)
         print("submit",smbo.runhistory.submitted)
         for key,val in smbo.runhistory.items():
             print(key,val)
-        if smbo.runhistory.finished % n == 0:
+
+        ##下面是每n个算法后，向PAP库添加n个中最好的一个
+        if smbo.runhistory.finished % self.n_config == 0:
 
             print(f"Evaluated {smbo.runhistory.finished} trials so far.")
-            cnt = smbo.runhistory.finished // n
-            
-            print("Current add the {} {}th config".format(smbo._scenario.name,cnt))
+            cnt = smbo.runhistory.finished // self.n_config
+            print(f"Current add the {smbo._scenario.name} {cnt}th config")
+
             min_cost = float("inf")
             flag_id = 0
             for key in smbo.runhistory:
-                if (cnt-1)*n + 1 <= key.config_id <= cnt*n:
+                if (cnt-1) * self.n_config + 1 <= key.config_id <= cnt * self.n_config:
                     if smbo.runhistory[key].cost < min_cost:
                         min_cost = smbo.runhistory[key].cost
                         flag_id = key.config_id
             best_config = smbo.runhistory.get_config(flag_id)
-            #incumbent = smbo.intensifier.get_incumbent()
-            print(best_config)
-            assert best_config is not None
-            print(f"the Best of Current {n} {smbo._scenario.name} config: {best_config.get_dictionary()}")
-            print(f"Current incumbent value: {smbo.runhistory.get_cost(best_config)}")
-            print("")
-            Config_dic = best_config.get_dictionary()
-            assert smbo._scenario.name == hgs_smacout_name or smbo._scenario.name == alns_smacout_name
-            flag = ''
-            if smbo._scenario.name == hgs_smacout_name:
-                flag = 'HGS'
-                PAP['HGS'].append(Config_dic)
-            else: 
-                flag = 'ALNS'
-                PAP['ALNS'].append(Config_dic)
-            ##更新Best_Record
-            Algo_name = target_func.dic_to_str(Config_dic,flag=flag)
+            best_config_dict = dict(best_config)
 
-            for instance in target_func.Best_Record.keys():
-                if target_func.Current_Record[instance] != {}:
-                    target_func.Best_Record[instance] = min(target_func.Best_Record[instance],target_func.Current_Record[instance][Algo_name].get())
-                    target_func.Current_Record[instance] = {}            ##不需要保留这n个algo的信息，可以直接清除
+            assert best_config_dict is not None
+            print(f"the Best of Current {self.n_config} {smbo._scenario.name} config: {best_config_dict}")
+            print(f"Current incumbent value: {smbo.runhistory.get_cost(best_config)}\n")
 
-
+            self.pap.papUpdate(params(**best_config_dict))
 
             print(f"We just triggered to stop the optimization after {smbo.runhistory.finished} {smbo._scenario.name} finished trials.")
             print(f"目前的最佳结果记录表")
-            for instance,res in target_func.Best_Record.items():
-                print(f"样例{instance}对应的当前最佳结果为：{res}")
-            print('')
-            print(PAP)
+            for instance_res, algo in self.pap.instance2algo.items():
+                print(f"样例{instance_res.instance_path}对应的当前最佳结果为：{instance_res.cost}\
+                      对应的最佳算法为{algo}")
 
-            print("")
-            print("tell_end结束")
-            return False
-        # if self.trials_counter == run_num:
-        #     print(f"We just triggered to stop the optimization after {smbo.runhistory.finished} finished trials.")
-        #     return False
-        # if self.trials_counter == 1:
-        #     print("开始等待")
-        #     time.sleep(10)
-        #     print("等待结束")
         print("")
-        print("tell_end结束")
+        print("tell_end结束\n")
         return None
     
-class hgs_smac:
-    @property
-    def configspace(self) -> ConfigurationSpace:
-        cs = ConfigurationSpace(seed = 0)
-        deco = Categorical("deco", 
-                        ["None", "RandomRoute", "BarycentreClustering", 
-                            "BarycentreQuadrant","BarycentreSwipe","RouteHistory",
-                            "RandomArc","CostArc","ArcHistory","RandomPath",
-                            "CostPath","PathHistory"], default="None")
-        sz = Integer("sz", (50, 300), default=200)
-        di = Integer("di", (1000,10000), default=10000)
-        cs.add_hyperparameters([deco,sz,di])
-        return cs
+
+class main:
+    def __init__(self, type, path, iteration, pap_capacity, n_config) -> None:
+        """
+        type 控制问题类型
+        path 数据路径
+        iteration 控制每个实例跑多少代
+        pap_capacity pap可以装几个算法
+        n_config 每n次挑选一个最佳配置
+
+        self.initial_design 为smac框架提供一个解的参考初始值
+        self.callback 回调函数, 控制修改pap
+        """
+        assert type in ["cvrp", "mdvrp", "vrptw"],  "problem type not in cvrp, mdvrp, vrptw"
+        if type == "cvrp":
+            self.initial_params = params.get_initial_params("cvrp.toml")
+        elif type == "vrptw":
+            self.initial_params = params.get_initial_params("")
+        else:
+            self.initial_params = params.get_initial_params("")
+            pass
+        self.pap = PAP(folder_path = path, iteration = iteration, type = type)
+        self.scenario = Scenario(configspace = params.get_configuration(type = type), 
+                                 deterministic = True, n_trials = pap_capacity*n_config, 
+                                 name = type+"smacout"+str(random.random()+time.time()), seed = 42)
+        self.initial_design = BlackBoxFacade.get_initial_design(
+            scenario = self.scenario,
+            additional_configs=[
+                Configuration(configuration_space = params.get_configuration(type = type),
+                          values = {
+                              "repair_probability" : self.initial_params.gen_params.repair_probability,
+                              "nb_iter_no_improvement" : self.initial_params.gen_params.nb_iter_no_improvement,
+                              "min_pop_size" : self.initial_params.pop_params.min_pop_size,
+                              "generation_size" : self.initial_params.pop_params.generation_size,
+                              "nb_elite" : self.initial_params.pop_params.nb_elite,
+                              "nb_close" : self.initial_params.pop_params.nb_close,
+                              "lb_diversity" : self.initial_params.pop_params.lb_diversity,
+                              "ub_diversity" : self.initial_params.pop_params.ub_diversity,
+                              "weight_wait_time" : self.initial_params.nb_params.weight_wait_time,
+                              "weight_time_warp" : self.initial_params.nb_params.weight_time_warp,
+                              "nb_granular" : self.initial_params.nb_params.nb_granular,
+                              "symmetric_proximity" : self.initial_params.nb_params.symmetric_proximity,
+                              "symmetric_neighbours" : self.initial_params.nb_params.symmetric_neighbours,
+                              "init_load_penalty" : self.initial_params.pen_params.init_load_penalty,
+                              "init_time_warp_penalty" : self.initial_params.pen_params.init_time_warp_penalty,
+                              "repair_booster" : self.initial_params.pen_params.repair_booster,
+                              "solutions_between_updates" : self.initial_params.pen_params.solutions_between_updates,
+                              "penalty_increase" : self.initial_params.pen_params.penalty_increase,
+                              "penalty_decrease" : self.initial_params.pen_params.penalty_decrease,
+                              "target_feasible" : self.initial_params.pen_params.target_feasible
+                    })
+                ]
+            )
+
+        self.pap_capacity = pap_capacity
+        self.callback = CustomCallback(n_config = n_config, _pap = self.pap)
+
+    def target(self, config : Configuration, seed : int = 42) -> float:
+        cur_params = params(**(dict(config)))
+        return self.pap.papTarget(param = cur_params)
     
-    def train(self,config:Configuration,seed:int = 0) -> float:
-        arg_sz,arg_di,arg_deco = config["sz"],config["di"],config["deco"]
-        print(f"目前在HGS_trials中的PAP:{PAP}")
-        return target_func.train(arg_sz,arg_di,arg_deco,flag="HGS")
-    
-class alns_smac:
-    @property
-    def configspace(self) -> ConfigurationSpace:
-        cs = ConfigurationSpace(seed = 0)
-        deco = Categorical("deco", 
-                        ["None", "RandomRoute", "BarycentreClustering", 
-                            "BarycentreQuadrant","BarycentreSwipe","RouteHistory",
-                            "RandomArc","CostArc","ArcHistory","RandomPath",
-                            "CostPath","PathHistory"], default="None")
-        sz = Integer("sz", (50, 300), default=200)
-        di = Integer("di", (1000,10000), default=10000)
-        cs.add_hyperparameters([deco,sz,di])
-        
-        return cs
-    def train(self,config:Configuration,seed:int = 0) -> float:
-        arg_sz,arg_di,arg_deco = config["sz"],config["di"],config["deco"]
-        print(f"目前在ALNS_trials中的PAP:{PAP}")
-        return target_func.train(arg_sz,arg_di,arg_deco,flag="ALNS")#flag用来指示当前要添加的是hgs or alns
-    
+    def train(self):
+        BlackBoxFacade(
+            scenario = self.scenario,
+            target_function = self.target,
+            callbacks = [self.callback],
+            logging_level = 9999999999,
+            initial_design = self.initial_design,
+        ).optimize()
+        for i, algo in enumerate(self.pap.algos):
+            print(f"第{i+1}个算法配置为{algo}\n")
     
 if __name__ == "__main__":
- #   stop_after = n
-    hgs_model = hgs_smac()
-    alns_model = alns_smac()
-    hgs_sce = Scenario(hgs_model.configspace,deterministic=True,n_trials=50,n_workers=n_worker,name=hgs_smacout_name,seed=1)
-    alns_sce = Scenario(alns_model.configspace,deterministic=True,n_trials=50,n_workers=n_worker,name=alns_smacout_name,seed=1)
-    #添加initial design
-    hgs_initial_design = BlackBoxFacade.get_initial_design(scenario=hgs_sce,n_configs=5,additional_configs=[
-        Configuration(configuration_space=hgs_model.configspace,values=
-                       {
-                        'sz' : 200,
-                        'di' : 1000,
-                        'deco' : 'BarycentreClustering'
-                      }),
-        Configuration(configuration_space=hgs_model.configspace,values=
-                      {
-                          'sz' : 250,
-                          'di' : 5000,
-                          'deco' : 'BarycentreSwipe'
-                      }),
-        Configuration(configuration_space=hgs_model.configspace,values=
-                      {
-                          'sz' : 100,
-                          'di' : 7500,
-                          'deco' : 'RouteHistory'
-                      }),
-        Configuration(configuration_space=hgs_model.configspace,values=
-                      {
-                          'sz' : 300,
-                          'di' : 7500,
-                          'deco' : 'RandomRoute'
-                      }),
-        Configuration(configuration_space=hgs_model.configspace,values=
-                      {
-                          'sz' : 150,
-                          'di' : 10000,
-                          'deco' : 'ArcHistory'
-                      }),
-        ])
-    alns_initial_design = BlackBoxFacade.get_initial_design(scenario=alns_sce,n_configs=3,additional_configs=[
-        Configuration(configuration_space=alns_model.configspace,values=
-                      {
-                          'sz' : 100,
-                          'di' : 5000,
-                          'deco' : 'BarycentreClustering'
-                      }),
-        Configuration(configuration_space=alns_model.configspace,values=
-                      {
-                          'sz' : 150,
-                          'di' : 1000,
-                          'deco' : 'RandomRoute'
-                      }),
-        Configuration(configuration_space=alns_model.configspace,values=
-                      {
-                          'sz' : 150,
-                          'di' : 1000,
-                          'deco' : 'None'
-                      }),
-    ])
-    for i in range(k):
-        if i % c == 0:##此时进行HGS的配置
-            BlackBoxFacade(
-                scenario=hgs_sce,
-                target_function=hgs_model.train,
-                overwrite=True if i == 0 else False,
-                callbacks=[CustomCallback()],
-                logging_level=999999999,
-                initial_design=hgs_initial_design,
-            ).optimize()
-
-        else:##进行ALNS配置
-                BlackBoxFacade(
-                scenario=alns_sce,
-                target_function=alns_model.train,
-                overwrite=True if i == 1 else False,
-                callbacks=[CustomCallback()],
-                logging_level=999999999,
-                initial_design=alns_initial_design,
-            ).optimize()
-    print(PAP)
+    # args = parse_args()
+    # tmp_main = main(type = args.type, path = args.path, iteration = args.iteration, pap_capacity = args.k, n_config = args.n)
+    tmp_main = main(type="cvrp", path="tmp_Data", iteration=100, pap_capacity=2, n_config=5)
+    tmp_main.train()
