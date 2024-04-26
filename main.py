@@ -82,7 +82,7 @@ class main:
         if type == "cvrp":
             self.initial_params = params.get_initial_params("cvrp.toml")
         elif type == "vrptw":
-            self.initial_params = params.get_initial_params("")
+            self.initial_params = params.get_initial_params("vrptw.toml")
         else:
             self.initial_params = params.get_initial_params("")
             pass

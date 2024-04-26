@@ -46,7 +46,7 @@ class PAP:
         sum = 0
         self.instance_res_of_param[param] = {}
         for vrp_target, _ in self.instance2algo.items():
-            cur_res = vrp_target.getCost(cvrp_params = param)
+            cur_res = vrp_target.getCost(vrptw_params = param)
             self.instance_res_of_param[param][vrp_target] = cur_res
             sum += min(cur_res, vrp_target.cost)
         return sum
