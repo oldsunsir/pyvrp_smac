@@ -84,7 +84,7 @@ class main:
         elif type == "vrptw":
             self.initial_params = params.get_initial_params("")
         else:
-            self.initial_params = params.get_initial_params("")
+            self.initial_params = params.get_initial_params("mdvrptw.toml")
             pass
         self.pap = PAP(folder_path = path, iteration = iteration, type = type)
         self.scenario = Scenario(configspace = params.get_configuration(type = type), 

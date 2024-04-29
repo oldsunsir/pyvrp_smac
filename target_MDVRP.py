@@ -4,7 +4,8 @@ from pyvrp import Model
 from pyvrp.stop import MaxIterations, MaxRuntime
 from params import params
 from pyvrp import SolveParams
-
+from pyvrp.plotting import plot_solution
+import matplotlib.pyplot as plt
 class MDVRPTarget:
 
     def __init__(self, iterations : int = 100, file_path : str = None) -> None:
@@ -67,7 +68,7 @@ class MDVRPTarget:
             m.add_client(
                 x=COORDS[idx][0],
                 y=COORDS[idx][1],
-                demand=DEMANDS[idx]
+                delivery=DEMANDS[idx]
             )
             for idx in range(len(COORDS)-depotNum)
         ]
@@ -79,3 +80,6 @@ class MDVRPTarget:
                 m.add_edge(frm, to, distance=distance)
         return m
 
+if __name__ == "__main__":
+    tmp_mdvrptarget = MDVRPTarget(file_path="tmp_Data/p01.txt", iterations=1000)
+    tmp_mdvrptarget.getCost(mdvrp_params = params.get_initial_params("mdvrptw.toml"))
