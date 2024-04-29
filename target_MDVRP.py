@@ -32,6 +32,7 @@ class MDVRPTarget:
     
     def getModel(self) -> Model:
         with open(self.instance_path, 'r', encoding='utf-8') as f:
+            print(self.instance_path)
             firstLine = f.readline().strip().split()
             vehicleNum  =   int(firstLine[1])
             customerNum =   int(firstLine[2])
