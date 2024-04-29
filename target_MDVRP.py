@@ -32,7 +32,6 @@ class MDVRPTarget:
     
     def getModel(self) -> Model:
         with open(self.instance_path, 'r', encoding='utf-8') as f:
-            print(self.instance_path)
             firstLine = f.readline().strip().split()
             vehicleNum  =   int(firstLine[1])
             customerNum =   int(firstLine[2])
@@ -43,13 +42,13 @@ class MDVRPTarget:
             DEMANDS = []
             for _ in range(customerNum):
                 line = f.readline().strip().split()
-                x, y = int(line[1]), int(line[2])
+                x, y = float(line[1]), float(line[2])
                 demand = int(line[4])
                 COORDS.append((x, y))
                 DEMANDS.append(demand)
             for _ in range(depotNum):
                 line = f.readline().strip().split()
-                x, y = int(line[1]), int(line[2])
+                x, y = float(line[1]), float(line[2])
                 COORDS.append((x, y))
 
         m = Model()
