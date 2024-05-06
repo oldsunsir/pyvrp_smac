@@ -17,7 +17,8 @@ with open("record.txt", 'r', encoding="utf-8") as f:
             config_dict = ast.literal_eval(config_text)
             test_pap.append(params(**(config_dict)))
 
-folder_path = "Test_CVRP_Data"
+test_pap.append(params.get_initial_params(path = "cvrp.toml"))
+folder_path = "Big_Test_CVRP_Data"
 instances_path = os.listdir(folder_path)
 # 遍历文件夹下的所有文件和文件夹
 for item in instances_path:
