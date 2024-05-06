@@ -36,4 +36,4 @@ for item in instances_path:
             best_res = tmp_cost
             best_idx = i
     print(f"best res for {instance_path} : {best_res}\
-            best config : {test_pap[i].to_dict}\n")
+            best config : {test_pap[best_idx].to_dict}\n")
