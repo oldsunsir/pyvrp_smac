@@ -50,3 +50,199 @@ best res for Test_CVRP_Data/X-n101-k25.vrp : 27591            best config : {'re
 best res for Test_CVRP_Data/X-n294-k50.vrp : 47315            best config : {'repair_probability': 0.8002694975584745, 'nb_iter_no_improvement': 17482, 'min_pop_size': 17, 'generation_size': 60, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.10064726807177067, 'ub_diversity': 0.5949085254222155, 'weight_wait_time': 7.199209118261934e-10, 'weight_time_warp': 3.385703479871154e-10, 'nb_granular': 32, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 8, 'repair_booster': 13, 'solutions_between_updates': 148, 'penalty_increase': 1.1913488428108394, 'penalty_decrease': 0.5285326577723026, 'target_feasible': 0.49251468013972044}
 
 best res for Test_CVRP_Data/X-n181-k23.vrp : 25589            best config : {'repair_probability': 0.587626691598024, 'nb_iter_no_improvement': 29275, 'min_pop_size': 16, 'generation_size': 55, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.030757065349750562, 'ub_diversity': 0.4000618735035593, 'weight_wait_time': 9.996309339050008e-10, 'weight_time_warp': 2.723516593411975e-10, 'nb_granular': 42, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 9, 'repair_booster': 13, 'solutions_between_updates': 140, 'penalty_increase': 1.4999884528195473, 'penalty_decrease': 0.32114173306314164, 'target_feasible': 0.4809863401884752}
+
+
+
+X-n308-k13.vrp
+规定时间内未找到最优解
+耗时30s 找到可行解25930
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n223-k34.vrp
+规定时间内未找到最优解
+耗时30s 找到可行解40537
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n275-k28.vrp
+耗时25.396181725000133s 找到最优解21245
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n110-k13.vrp
+耗时0.48734520000107295s 找到最优解14971
+最佳配置 : {'repair_probability': 0.587626691598024, 'nb_iter_no_improvement': 29275, 'min_pop_size': 16, 'generation_size': 55, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.030757065349750562, 'ub_diversity': 0.4000618735035593, 'weight_wait_time': 9.996309339050008e-10, 'weight_time_warp': 2.723516593411975e-10, 'nb_granular': 42, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 9, 'repair_booster': 13, 'solutions_between_updates': 140, 'penalty_increase': 1.4999884528195473, 'penalty_decrease': 0.32114173306314164, 'target_feasible': 0.4809863401884752}
+
+X-n120-k6.vrp
+耗时5.637808266999855s 找到最优解13332
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n200-k36.vrp
+规定时间内未找到最优解
+耗时30s 找到可行解58626
+最佳配置 : {'repair_probability': 0.9999179892080294, 'nb_iter_no_improvement': 20429, 'min_pop_size': 22, 'generation_size': 27, 'nb_elite': 3, 'nb_close': 5, 'lb_diversity': 0.07856956817904444, 'ub_diversity': 0.7942810319756637, 'weight_wait_time': 3.439639693248867e-10, 'weight_time_warp': 2.4574360827512347e-12, 'nb_granular': 33, 'symmetric_proximity': True, 'symmetric_neighbours': False, 'init_load_penalty': 24, 'init_time_warp_penalty': 3, 'repair_booster': 10, 'solutions_between_updates': 85, 'penalty_increase': 1.3174382310776374, 'penalty_decrease': 0.9998968440540354, 'target_feasible': 0.4999879234898421}
+
+X-n101-k25.vrp
+耗时0.7405955679987528s 找到最优解27591
+最佳配置 : {'repair_probability': 0.9921541214386006, 'nb_iter_no_improvement': 20955, 'min_pop_size': 19, 'generation_size': 46, 'nb_elite': 6, 'nb_close': 5, 'lb_diversity': 0.0958827793696836, 'ub_diversity': 0.5217874059468448, 'weight_wait_time': 9.999845617405344e-10, 'weight_time_warp': 6.607576815597199e-10, 'nb_granular': 42, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 26, 'init_time_warp_penalty': 10, 'repair_booster': 12, 'solutions_between_updates': 135, 'penalty_increase': 1.276499372063576, 'penalty_decrease': 0.8151458779216574, 'target_feasible': 0.4499209549895892}
+
+X-n294-k50.vrp
+规定时间内未找到最优解
+耗时30s 找到可行解47308
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n181-k23.vrp
+规定时间内未找到最优解
+耗时30s 找到可行解25589
+最佳配置 : {'repair_probability': 0.587626691598024, 'nb_iter_no_improvement': 29275, 'min_pop_size': 16, 'generation_size': 55, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.030757065349750562, 'ub_diversity': 0.4000618735035593, 'weight_wait_time': 9.996309339050008e-10, 'weight_time_warp': 2.723516593411975e-10, 'nb_granular': 42, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 9, 'repair_booster': 13, 'solutions_between_updates': 140, 'penalty_increase': 1.4999884528195473, 'penalty_decrease': 0.32114173306314164, 'target_feasible': 0.4809863401884752}
+
+50s 大规模
+X-n308-k13.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解25930
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n393-k38.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解38342
+最佳配置 : {'repair_probability': 0.9999179892080294, 'nb_iter_no_improvement': 20429, 'min_pop_size': 22, 'generation_size': 27, 'nb_elite': 3, 'nb_close': 5, 'lb_diversity': 0.07856956817904444, 'ub_diversity': 0.7942810319756637, 'weight_wait_time': 3.439639693248867e-10, 'weight_time_warp': 2.4574360827512347e-12, 'nb_granular': 33, 'symmetric_proximity': True, 'symmetric_neighbours': False, 'init_load_penalty': 24, 'init_time_warp_penalty': 3, 'repair_booster': 10, 'solutions_between_updates': 85, 'penalty_increase': 1.3174382310776374, 'penalty_decrease': 0.9998968440540354, 'target_feasible': 0.4999879234898421}
+
+X-n411-k19.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解19760
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n313-k71.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解94582
+最佳配置 : {'repair_probability': 0.8002694975584745, 'nb_iter_no_improvement': 17482, 'min_pop_size': 17, 'generation_size': 60, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.10064726807177067, 'ub_diversity': 0.5949085254222155, 'weight_wait_time': 7.199209118261934e-10, 'weight_time_warp': 3.385703479871154e-10, 'nb_granular': 32, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 8, 'repair_booster': 13, 'solutions_between_updates': 148, 'penalty_increase': 1.1913488428108394, 'penalty_decrease': 0.5285326577723026, 'target_feasible': 0.49251468013972044}
+
+X-n401-k29.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解66528
+最佳配置 : {'repair_probability': 0.8002694975584745, 'nb_iter_no_improvement': 17482, 'min_pop_size': 17, 'generation_size': 60, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.10064726807177067, 'ub_diversity': 0.5949085254222155, 'weight_wait_time': 7.199209118261934e-10, 'weight_time_warp': 3.385703479871154e-10, 'nb_granular': 32, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 8, 'repair_booster': 13, 'solutions_between_updates': 148, 'penalty_increase': 1.1913488428108394, 'penalty_decrease': 0.5285326577723026, 'target_feasible': 0.49251468013972044}
+
+X-n331-k15.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解31188
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n420-k130.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解107998
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n317-k53.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解78402
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n480-k70.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解90274
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n384-k52.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解66487
+最佳配置 : {'repair_probability': 0.587626691598024, 'nb_iter_no_improvement': 29275, 'min_pop_size': 16, 'generation_size': 55, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.030757065349750562, 'ub_diversity': 0.4000618735035593, 'weight_wait_time': 9.996309339050008e-10, 'weight_time_warp': 2.723516593411975e-10, 'nb_granular': 42, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 9, 'repair_booster': 13, 'solutions_between_updates': 140, 'penalty_increase': 1.4999884528195473, 'penalty_decrease': 0.32114173306314164, 'target_feasible': 0.4809863401884752}
+
+X-n469-k138.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解223702
+最佳配置 : {'repair_probability': 0.9921541214386006, 'nb_iter_no_improvement': 20955, 'min_pop_size': 19, 'generation_size': 46, 'nb_elite': 6, 'nb_close': 5, 'lb_diversity': 0.0958827793696836, 'ub_diversity': 0.5217874059468448, 'weight_wait_time': 9.999845617405344e-10, 'weight_time_warp': 6.607576815597199e-10, 'nb_granular': 42, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 26, 'init_time_warp_penalty': 10, 'repair_booster': 12, 'solutions_between_updates': 135, 'penalty_increase': 1.276499372063576, 'penalty_decrease': 0.8151458779216574, 'target_feasible': 0.4499209549895892}
+
+X-n491-k59.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解67155
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n327-k20.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解27641
+最佳配置 : {'repair_probability': 0.8002694975584745, 'nb_iter_no_improvement': 17482, 'min_pop_size': 17, 'generation_size': 60, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.10064726807177067, 'ub_diversity': 0.5949085254222155, 'weight_wait_time': 7.199209118261934e-10, 'weight_time_warp': 3.385703479871154e-10, 'nb_granular': 32, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 8, 'repair_booster': 13, 'solutions_between_updates': 148, 'penalty_increase': 1.1913488428108394, 'penalty_decrease': 0.5285326577723026, 'target_feasible': 0.49251468013972044}
+
+X-n322-k28.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解29907
+最佳配置 : {'repair_probability': 0.9999179892080294, 'nb_iter_no_improvement': 20429, 'min_pop_size': 22, 'generation_size': 27, 'nb_elite': 3, 'nb_close': 5, 'lb_diversity': 0.07856956817904444, 'ub_diversity': 0.7942810319756637, 'weight_wait_time': 3.439639693248867e-10, 'weight_time_warp': 2.4574360827512347e-12, 'nb_granular': 33, 'symmetric_proximity': True, 'symmetric_neighbours': False, 'init_load_penalty': 24, 'init_time_warp_penalty': 3, 'repair_booster': 10, 'solutions_between_updates': 85, 'penalty_increase': 1.3174382310776374, 'penalty_decrease': 0.9998968440540354, 'target_feasible': 0.4999879234898421}
+
+X-n303-k21.vrp
+规定时间内未找到最优解
+耗时50s 找到可行解21890
+最佳配置 : {'repair_probability': 0.9999179892080294, 'nb_iter_no_improvement': 20429, 'min_pop_size': 22, 'generation_size': 27, 'nb_elite': 3, 'nb_close': 5, 'lb_diversity': 0.07856956817904444, 'ub_diversity': 0.7942810319756637, 'weight_wait_time': 3.439639693248867e-10, 'weight_time_warp': 2.4574360827512347e-12, 'nb_granular': 33, 'symmetric_proximity': True, 'symmetric_neighbours': False, 'init_load_penalty': 24, 'init_time_warp_penalty': 3, 'repair_booster': 10, 'solutions_between_updates': 85, 'penalty_increase': 1.3174382310776374, 'penalty_decrease': 0.9998968440540354, 'target_feasible': 0.4999879234898421}
+
+
+100s 大规模
+X-n303-k21.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解21890
+最佳配置 : {'repair_probability': 0.9999179892080294, 'nb_iter_no_improvement': 20429, 'min_pop_size': 22, 'generation_size': 27, 'nb_elite': 3, 'nb_close': 5, 'lb_diversity': 0.07856956817904444, 'ub_diversity': 0.7942810319756637, 'weight_wait_time': 3.439639693248867e-10, 'weight_time_warp': 2.4574360827512347e-12, 'nb_granular': 33, 'symmetric_proximity': True, 'symmetric_neighbours': False, 'init_load_penalty': 24, 'init_time_warp_penalty': 3, 'repair_booster': 10, 'solutions_between_updates': 85, 'penalty_increase': 1.3174382310776374, 'penalty_decrease': 0.9998968440540354, 'target_feasible': 0.4999879234898421}
+
+X-n308-k13.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解25930
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n313-k71.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解94426
+最佳配置 : {'repair_probability': 0.8002694975584745, 'nb_iter_no_improvement': 17482, 'min_pop_size': 17, 'generation_size': 60, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.10064726807177067, 'ub_diversity': 0.5949085254222155, 'weight_wait_time': 7.199209118261934e-10, 'weight_time_warp': 3.385703479871154e-10, 'nb_granular': 32, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 8, 'repair_booster': 13, 'solutions_between_updates': 148, 'penalty_increase': 1.1913488428108394, 'penalty_decrease': 0.5285326577723026, 'target_feasible': 0.49251468013972044}
+
+X-n317-k53.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解78366
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n322-k28.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解29887
+最佳配置 : {'repair_probability': 0.9999179892080294, 'nb_iter_no_improvement': 20429, 'min_pop_size': 22, 'generation_size': 27, 'nb_elite': 3, 'nb_close': 5, 'lb_diversity': 0.07856956817904444, 'ub_diversity': 0.7942810319756637, 'weight_wait_time': 3.439639693248867e-10, 'weight_time_warp': 2.4574360827512347e-12, 'nb_granular': 33, 'symmetric_proximity': True, 'symmetric_neighbours': False, 'init_load_penalty': 24, 'init_time_warp_penalty': 3, 'repair_booster': 10, 'solutions_between_updates': 85, 'penalty_increase': 1.3174382310776374, 'penalty_decrease': 0.9998968440540354, 'target_feasible': 0.4999879234898421}
+
+X-n327-k20.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解27596
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n331-k15.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解31169
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n384-k52.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解66284
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n393-k38.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解38275
+最佳配置 : {'repair_probability': 0.9999179892080294, 'nb_iter_no_improvement': 20429, 'min_pop_size': 22, 'generation_size': 27, 'nb_elite': 3, 'nb_close': 5, 'lb_diversity': 0.07856956817904444, 'ub_diversity': 0.7942810319756637, 'weight_wait_time': 3.439639693248867e-10, 'weight_time_warp': 2.4574360827512347e-12, 'nb_granular': 33, 'symmetric_proximity': True, 'symmetric_neighbours': False, 'init_load_penalty': 24, 'init_time_warp_penalty': 3, 'repair_booster': 10, 'solutions_between_updates': 85, 'penalty_increase': 1.3174382310776374, 'penalty_decrease': 0.9998968440540354, 'target_feasible': 0.4999879234898421}
+
+X-n401-k29.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解66408
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n411-k19.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解19752
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n420-k130.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解107905
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n469-k138.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解222313
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n480-k70.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解89778
+最佳配置 : {'repair_probability': 0.8002694975584745, 'nb_iter_no_improvement': 17482, 'min_pop_size': 17, 'generation_size': 60, 'nb_elite': 6, 'nb_close': 6, 'lb_diversity': 0.10064726807177067, 'ub_diversity': 0.5949085254222155, 'weight_wait_time': 7.199209118261934e-10, 'weight_time_warp': 3.385703479871154e-10, 'nb_granular': 32, 'symmetric_proximity': False, 'symmetric_neighbours': True, 'init_load_penalty': 27, 'init_time_warp_penalty': 8, 'repair_booster': 13, 'solutions_between_updates': 148, 'penalty_increase': 1.1913488428108394, 'penalty_decrease': 0.5285326577723026, 'target_feasible': 0.49251468013972044}
+
+X-n491-k59.vrp
+规定时间内未找到最优解
+耗时100s 找到可行解66908
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
