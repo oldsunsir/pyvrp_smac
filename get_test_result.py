@@ -7,8 +7,9 @@ from target_CVRP import CVRPTarget
 from target_VRPTW import VRPTWTarget
 from target_MDVRP import MDVRPTarget
 from pyvrp.stop import MaxRuntime
+from StopWhenBks import StopWhenBks
 test_pap : list[params] = []
-
+max_runtime = 30
 with open("record.txt", 'r', encoding="utf-8") as f:
     lines = f.readlines()
     for line in lines:
@@ -32,7 +33,7 @@ for item in instances_path:
                                    population = config.pop_params,
                                    neighbourhood = config.nb_params)
         tmp_cost = single_vrp_target.model.solve(params = solve_params, 
-                    stop = MaxRuntime(max_runtime = 30), seed = 42, display = False).cost()
+                    stop = StopWhenBks(bks=, maxruntime = max_runtime), seed = 42, display = False).cost()
         if tmp_cost < best_res:
             best_res = tmp_cost
             best_idx = i
