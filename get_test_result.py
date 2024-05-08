@@ -1,6 +1,7 @@
 import ast
 import re
 import os
+from multiprocessing import pool
 from pyvrp import SolveParams
 from params import params
 from target_CVRP import CVRPTarget
@@ -10,7 +11,7 @@ from pyvrp.stop import MaxRuntime
 from vrplib import read_solution
 from StopWhenBks import StopWhenBks
 test_pap : list[params] = []
-max_runtime = 100
+# max_runtime = 100
 
 with open("record.txt", 'r', encoding="utf-8") as f:
     lines = f.readlines()
@@ -31,6 +32,9 @@ for item in instances_path:
     instance_path = os.path.join(folder_path, item)
 
     single_vrp_target = CVRPTarget(file_path = instance_path)
+    # 根据vidal 2022 HGS论文中的规则, 通过客户规模确定计算时间
+    client_num = len(single_vrp_target.model.locations)
+    max_runtime = client_num * 240 / 100
 
     matches = re.findall(pattern, item)[0]
     sol_path_name = os.path.join(sol_folder, f"{matches}.sol")
