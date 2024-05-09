@@ -10,7 +10,7 @@ class VRPTWTarget:
         self.cost : float = float("inf")    ## 初始结果应该设为无穷大
         self.iterations = iterations
         self.instance_path = file_path
-        self.model = Model.from_data(read(file_path))
+        self.model = Model.from_data(read(file_path, round_func = "dimacs"))
 
     def __hash__(self) -> int:
         """
