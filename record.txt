@@ -80,3 +80,44 @@ p06.txt
 pr04.txt
 耗时15.038129937005579s 找到最优解1952
 最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+pyvrp默认参数配置测试结果
+pr01.txt
+耗时0.04910433299983197s 找到最优解830
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+p12.txt
+耗时0.1435229500002606s 找到最优解1312
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+p14.txt
+耗时0.15355720900015513s 找到最优解1312
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+p01.txt
+耗时0.29502004300002227s 找到最优解558
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+pr08.txt
+耗时1.96219671200015s 找到最优解1582
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+p16.txt
+耗时2.2246492399999624s 找到最优解2494
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+p06.txt
+耗时2.3094398100001854s 找到最优解842
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+p03.txt
+耗时3.348304348000056s 找到最优解620
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+p05.txt
+耗时9.726418302000184s 找到最优解714
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+pr04.txt
+耗时15.50674137499982s 找到最优解1952
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
