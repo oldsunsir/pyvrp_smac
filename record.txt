@@ -321,3 +321,78 @@ X-n491-k59.vrp
 规定时间内未找到最优解
 耗时1178.4s 找到可行解66753
 最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+pyvrp默认参数测试结果
+X-n303-k21.vrp
+规定时间内未找到最优解
+耗时727.2s 找到可行解21877
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n308-k13.vrp
+规定时间内未找到最优解
+耗时739.2s 找到可行解25892
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n313-k71.vrp
+规定时间内未找到最优解
+耗时751.2s 找到可行解94352
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n317-k53.vrp
+规定时间内未找到最优解
+耗时760.8s 找到可行解78366
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n322-k28.vrp
+规定时间内未找到最优解
+耗时772.8s 找到可行解29942
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n327-k20.vrp
+规定时间内未找到最优解
+耗时784.8s 找到可行解27576
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n331-k15.vrp
+规定时间内未找到最优解
+耗时794.4s 找到可行解31105
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n393-k38.vrp
+耗时901.420690547s 找到最优解38260
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n384-k52.vrp
+规定时间内未找到最优解
+耗时921.6s 找到可行解66168
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n401-k29.vrp
+规定时间内未找到最优解
+耗时962.4s 找到可行解66311
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n411-k19.vrp
+规定时间内未找到最优解
+耗时986.4s 找到可行解19752
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n420-k130.vrp
+规定时间内未找到最优解
+耗时1008.0s 找到可行解107903
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n469-k138.vrp
+规定时间内未找到最优解
+耗时1125.6s 找到可行解221972
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n480-k70.vrp
+规定时间内未找到最优解
+耗时1152.0s 找到可行解89590
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
+
+X-n491-k59.vrp
+规定时间内未找到最优解
+耗时1178.4s 找到可行解66753
+最佳配置 : {'repair_probability': 0.5, 'nb_iter_no_improvement': 20000, 'min_pop_size': 25, 'generation_size': 40, 'nb_elite': 4, 'nb_close': 5, 'lb_diversity': 0.1, 'ub_diversity': 0.5, 'weight_wait_time': 0, 'weight_time_warp': 0, 'nb_granular': 20, 'symmetric_proximity': True, 'symmetric_neighbours': True, 'init_load_penalty': 20, 'init_time_warp_penalty': 0, 'repair_booster': 12, 'solutions_between_updates': 100, 'penalty_increase': 1.25, 'penalty_decrease': 0.85, 'target_feasible': 0.43}
