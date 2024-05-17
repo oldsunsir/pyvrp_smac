@@ -33,7 +33,7 @@ def process_instance(item : str, folder_path : str, sol_folder : str, test_pap :
     instance_path = os.path.join(folder_path, item)
     single_vrp_target = VRPTWTarget(file_path = instance_path)
 
-    max_runtime = 50
+    max_runtime = 10
 
     bks = bks_record[item]
     best_res = float("inf")
@@ -45,10 +45,10 @@ def process_instance(item : str, folder_path : str, sol_folder : str, test_pap :
                                    penalty = config.pen_params,
                                    population = config.pop_params,
                                    neighbourhood = config.nb_params)
-        tmp_cost = single_vrp_target.model.solve(params = solve_params, 
-                    stop = StopWhenBks(bks = bks, maxruntime = max_runtime), seed = 42, display = False)
         # tmp_cost = single_vrp_target.model.solve(params = solve_params, 
-        #             stop = MaxRuntime(max_runtime = max_runtime), seed = 42, display = False).cost()
+        #             stop = StopWhenBks(bks = bks, maxruntime = max_runtime), seed = 42, display = False)
+        tmp_cost = single_vrp_target.model.solve(params = solve_params, 
+                    stop = MaxRuntime(max_runtime = max_runtime), seed = 42, display = False)
         if tmp_cost.runtime < max_runtime:
             if tmp_cost.runtime < min_runtime:
                 best_res = tmp_cost.cost()
