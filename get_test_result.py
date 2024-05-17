@@ -14,16 +14,16 @@ from StopWhenBks import StopWhenBks
 print_lock = Lock()
 
 bks_record = {
-    "R101.100.20.vrptw" : 15720,
-    "R103.100.14.vrptw" : 11680,
-    "R109.100.13.vrptw" : 11090,
-    "R112.100.10.vrptw" : 9080,
-    "RC102.100.14.vrptw": 14190,
-    "RC103.100.11.vrptw": 12210,
-    "RC202.100.8.vrptw" : 10690,
-    "RC203.100.5.vrptw" : 8970,
-    "RC204.100.4.vrptw" : 7630,
-    "RC206.100.7.vrptw" : 10240,
+    "R101.100.20.vrptw" : 16077,
+    "R103.100.14.vrptw" : 11997,
+    "R109.100.13.vrptw" : 11443,
+    "R112.100.10.vrptw" : 9432,
+    "RC102.100.14.vrptw": 14474,
+    "RC103.100.11.vrptw": 12525,
+    "RC202.100.8.vrptw" : 10923,
+    "RC203.100.5.vrptw" : 9218,
+    "RC204.100.4.vrptw" : 7820,
+    "RC206.100.7.vrptw" : 10496,
 }
 def process_instance(item : str, folder_path : str, sol_folder : str, test_pap : list[params], pattern):
     for i in range(len(test_pap)):
@@ -33,7 +33,7 @@ def process_instance(item : str, folder_path : str, sol_folder : str, test_pap :
     instance_path = os.path.join(folder_path, item)
     single_vrp_target = VRPTWTarget(file_path = instance_path)
 
-    max_runtime = 10
+    max_runtime = 20
 
     bks = bks_record[item]
     best_res = float("inf")
@@ -45,10 +45,10 @@ def process_instance(item : str, folder_path : str, sol_folder : str, test_pap :
                                    penalty = config.pen_params,
                                    population = config.pop_params,
                                    neighbourhood = config.nb_params)
-        # tmp_cost = single_vrp_target.model.solve(params = solve_params, 
-        #             stop = StopWhenBks(bks = bks, maxruntime = max_runtime), seed = 42, display = False)
         tmp_cost = single_vrp_target.model.solve(params = solve_params, 
-                    stop = MaxRuntime(max_runtime = max_runtime), seed = 42, display = False)
+                    stop = StopWhenBks(bks = bks, maxruntime = max_runtime), seed = 42, display = False)
+        # tmp_cost = single_vrp_target.model.solve(params = solve_params, 
+        #             stop = MaxRuntime(max_runtime = max_runtime), seed = 42, display = False)
         if tmp_cost.runtime < max_runtime:
             if tmp_cost.runtime < min_runtime:
                 best_res = tmp_cost.cost()
