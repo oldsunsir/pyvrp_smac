@@ -75,7 +75,9 @@ if __name__ == "__main__":
                 config_text = re.search(r"第.个算法配置为(.+)", line).group(1)
                 config_dict = ast.literal_eval(config_text)
                 test_pap.append(config_dict)
-
+                ##  由于添加了4/6/8采样的结果, 这里只收集频率10对应的结果
+                if len(test_pap) == 4:
+                    break;
     
     # folder_path = "Big_Test_CVRP_Data"
     folder_path = "Big_Test_CVRP_Data"
